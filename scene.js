@@ -74,7 +74,7 @@ var controls = new THREE.OrbitControls( camera, renderer.domElement );
 				// enable animation loop when using damping or autorotation
 				//controls.enableDamping = true;
 				//controls.dampingFactor = 0.25;
-				controls.enableZoom = false;
+				controls.enableZoom = true;
 
 var geometry = new THREE.SphereGeometry(1, 32, 24);
 var normalMap = THREE.ImageUtils.loadTexture("images/textures/earth_normal.jpg");
@@ -112,7 +112,7 @@ var House2 = addHouse();
 var HouseGroup = new THREE.Group();
 HouseGroup.add(House1);
 House2.position.x = 1;
-HouseGroup.add(House2);
+// HouseGroup.add(House2);
 
 scene.add(HouseGroup);
 
