@@ -1,13 +1,18 @@
 var loader = new THREE.ObjectLoader();
 var objLoader = new THREE.OBJLoader();
+var textureLoader = new THREE.TextureLoader();
 var house = new THREE.Mesh();
 
 // Create scene
 var scene = new THREE.Scene();
+var
+    car1, car2;
 
-	//Car
-  /*      loader.load( 'car/lamborghini-aventador-pbribl.json', function ( obj ) {
-			scene.add(obj);
+        loader.load( 'car/lamborghini-aventador-pbribl.json', function ( obj ) {
+            obj.scale.set(0.3,0.3,0.3);
+            obj.rotation.y = 1.6;
+            car1 = obj;
+			scene.add(car1);
         },
 		// called when loading is in progresses
     function ( xhr ) {
@@ -20,7 +25,27 @@ var scene = new THREE.Scene();
 
         console.log( error );
 
-    }); */
+    });
+
+loader.load( 'car/mustang/1967-shelby-ford-mustang.json', function ( obj ) {
+        obj.scale.set(0.3,0.3,0.3);
+        obj.rotation.y = 1.6;
+        obj.position.z = -20;
+        car2 = obj;
+        scene.add(car2);
+    },
+    // called when loading is in progresses
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( error );
+
+    });
 
 objLoader.load(
     //path to the obj.
@@ -74,11 +99,10 @@ var controls = new THREE.OrbitControls( camera, renderer.domElement );
 				// enable animation loop when using damping or autorotation
 				//controls.enableDamping = true;
 				//controls.dampingFactor = 0.25;
-				controls.enableZoom = false;
 
 var geometry = new THREE.SphereGeometry(1, 32, 24);
-var normalMap = THREE.ImageUtils.loadTexture("images/textures/earth_normal.jpg");
-var colorMap = THREE.ImageUtils.loadTexture("images/textures/earth.jpg");
+var normalMap = textureLoader.load("images/textures/earth_normal.jpg");
+var colorMap = textureLoader.load("images/textures/earth.jpg");
 var material = new THREE.MeshPhongMaterial(
     {
         map: colorMap,
@@ -94,7 +118,7 @@ for (var i = 0; i < 6; i++)
 {
     console.log(directions[i]);
     materialArray.push( new THREE.MeshBasicMaterial({
-        map: THREE.ImageUtils.loadTexture( directions[i]),
+        map: textureLoader.load( directions[i]),
         side: THREE.BackSide})
     );
 }
@@ -104,13 +128,56 @@ var skyMaterial = new THREE.MeshFaceMaterial( materialArray );
 var skyBox = new THREE.Mesh( skyGeometry, skyMaterial );
 scene.add( skyBox );
 
-var light = new THREE.DirectionalLight( 0xdddddd, 10 );
-light.position.set(0, 1, 0 );
-scene.add( light );
-var House1 = addHouse();
-scene.add(House1);
+// Create light
 
-House1.rotation.y = Math.PI / 3;
+var light = new THREE.DirectionalLight( 0xdddddd, 0.01 );
+light.position.set(0, 10, 0 );
+light.castShadow = true;
+scene.add( light );
+
+// Create house
+// var House1 = addHouse();
+// scene.add(House1);
+
+// Create road
+var road = addRoad();
+scene.add(road);
+
+for (var i = -40; i < 40; i++) {
+    if (i % 2 == 0) {
+        var tree = addTree();
+        tree.position.y = 0.3
+        tree.position.x = 0.75;
+        tree.position.z = i;
+        scene.add(tree);
+
+
+        var lamppost = addLamppost();
+        lamppost.position.y = 0.4;
+        lamppost.position.x = -0.75;
+        lamppost.position.z = i;
+        scene.add(lamppost);
+    }
+
+    else {
+        var lamppost = addLamppost();
+        lamppost.position.y = 0.4;
+        lamppost.position.x = 0.75;
+        lamppost.position.z = i;
+        scene.add(lamppost);
+
+
+        var tree = addTree();
+        tree.position.y = 0.3
+        tree.position.x = -0.75;
+        tree.position.z = i;
+        scene.add(tree);
+    }
+}
+
+
+
+//House1.rotation.y = Math.PI / 3;
 
 
 
@@ -127,6 +194,24 @@ var render = function () {
     requestAnimationFrame(render);
     var delta = clock.getDelta();
 
+    if(typeof car1 !== "undefined") {
+        // Move car to starting position if it is at the end of the street
+        if (car1.position.z < -40) {
+            car1.position.z = 50;
+        }
+
+        car1.position.z -= delta * 3;
+    }
+
+
+    if(typeof car2 !== "undefined") {
+        // Move car to starting position if it is at the end of the street
+        if (car2.position.z < -40) {
+            car2.position.z = 50;
+        }
+
+        car2.position.z -= delta * 3;
+    }
     //cube.rotation.y += 1 * delta;
     //cube.rotation.x +=  1 * delta;
     // cube.rotation.z += 1* delta;
