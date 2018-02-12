@@ -84,9 +84,15 @@ var light = new THREE.DirectionalLight( 0xdddddd, 10 );
 light.position.set(0, 1, 0 );
 scene.add( light );
 var House1 = addHouse();
-scene.add(House1);
+var House2 = addHouse();
+var HouseGroup = new THREE.Group();
+HouseGroup.add(House1);
+House2.position.x = 1;
+HouseGroup.add(House2);
 
-House1.rotation.y = Math.PI / 3;
+scene.add(HouseGroup);
+
+// House1.rotation.y = Math.PI / 4;
 
 
 
