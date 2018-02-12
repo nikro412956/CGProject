@@ -5,6 +5,23 @@ var house = new THREE.Mesh();
 // Create scene
 var scene = new THREE.Scene();
 
+	//Car
+  /*      loader.load( 'car/lamborghini-aventador-pbribl.json', function ( obj ) {
+			scene.add(obj);
+        },
+		// called when loading is in progresses
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( error );
+
+    }); */
+
 objLoader.load(
     //path to the obj.
     "js/obj/model.obj",
