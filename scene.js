@@ -5,6 +5,23 @@ var house = new THREE.Mesh();
 // Create scene
 var scene = new THREE.Scene();
 
+	//Car
+  /*      loader.load( 'car/lamborghini-aventador-pbribl.json', function ( obj ) {
+			scene.add(obj);
+        },
+		// called when loading is in progresses
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( error );
+
+    }); */
+
 objLoader.load(
     //path to the obj.
     "js/obj/model.obj",
@@ -46,11 +63,18 @@ var camera = new THREE.PerspectiveCamera(
 	window.innerWidth/window.innerHeight, // aspect — Camera frustum aspect ratio.
 	0.01, // near — Camera frustum near plane.
 	7000); // far — Camera frustum far plane.
-
+	
+	
 // Create renderer
 var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+
+var controls = new THREE.OrbitControls( camera, renderer.domElement );
+				// enable animation loop when using damping or autorotation
+				//controls.enableDamping = true;
+				//controls.dampingFactor = 0.25;
+				controls.enableZoom = false;
 
 var geometry = new THREE.SphereGeometry(1, 32, 24);
 var normalMap = THREE.ImageUtils.loadTexture("images/textures/earth_normal.jpg");
