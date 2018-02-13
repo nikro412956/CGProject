@@ -8,24 +8,24 @@ var scene = new THREE.Scene();
 var
     car1;
 
-        loader.load( 'car/lamborghini-aventador-pbribl.json', function ( obj ) {
-            obj.scale.set(0.3,0.3,0.3);
-            obj.rotation.y = 1.6;
-            car1 = obj;
-			scene.add(car1);
-        },
-		// called when loading is in progresses
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( error );
-
-    });
+    //     loader.load( 'car/lamborghini-aventador-pbribl.json', function ( obj ) {
+    //         obj.scale.set(0.3,0.3,0.3);
+    //         obj.rotation.y = 1.6;
+    //         car1 = obj;
+		// 	scene.add(car1);
+    //     },
+		// // called when loading is in progresses
+    // function ( xhr ) {
+    //
+    //     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+    //
+    // },
+    // // called when loading has errors
+    // function ( error ) {
+    //
+    //     console.log( error );
+    //
+    // });
 
 objLoader.load(
     //path to the obj.
@@ -118,7 +118,7 @@ scene.add( light );
 var House1 = addHouse();
 var House2 = addHouse();
     var HouseGroup = new THREE.Group();
-    for(i = -5; i <=9; i++){
+    for(i = -15; i <=14; i++){
         var house = addHouse();
         house.position.x = i;
         HouseGroup.add(house);
