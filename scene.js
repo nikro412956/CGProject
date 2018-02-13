@@ -27,6 +27,13 @@ var
     //
     // });
 
+var lion;
+loader.load("LionStatue/lion-statue.json", function (obj) {
+    obj.scale.set(0.1,0.1,0.1);
+    lion = obj;
+    scene.add(lion);
+})
+
 objLoader.load(
     //path to the obj.
     "js/obj/model.obj",
