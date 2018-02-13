@@ -6,7 +6,7 @@ var house = new THREE.Mesh();
 // Create scene
 var scene = new THREE.Scene();
 var
-    car1
+    car1;
 
         loader.load( 'car/lamborghini-aventador-pbribl.json', function ( obj ) {
             obj.scale.set(0.3,0.3,0.3);
@@ -136,6 +136,14 @@ var House2 = addHouse();
 
 var road = addRoad();
 scene.add(road);
+
+var grass1= addGrass();
+grass1.position.x = 6;
+scene.add(grass1);
+
+var grass2 = addGrass();
+grass2.position.x = -6;
+scene.add(grass2);
 
 for (var i = -40; i < 40; i++) {
     if (i % 2 == 0) {
