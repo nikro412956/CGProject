@@ -31,7 +31,7 @@ function addHouse2(){
 
     house.add(roof);
 
-    var doorTexture = TLoader.load("images/textures/0002-modern-door.jpg");
+    var doorTexture = TLoader.load("images/textures/featured-rustic.png");
 
     var geoDoor = new THREE.PlaneGeometry(0.2, 0.4);
     var matDoor = new THREE.MeshBasicMaterial({map: doorTexture, side: THREE.DoubleSide});
@@ -56,6 +56,153 @@ function addHouse2(){
     pGroup.position.x = -1.501;
     pGroup.position.y = -0.499;
     house.add(pGroup);
+
+
+    var WindowTexture = TLoader.load("images/textures/Glass-0254.jpg");
+
+    var geoW = new THREE.PlaneGeometry(0.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: WindowTexture, side: THREE.DoubleSide});
+    var Window1 = new THREE.Mesh(geoW, matW);
+    Window1.rotation.y = Math.PI / 2;
+    Window1.position.z = 0.501;
+    Window1.position.y = -0.25;
+    Window1.position.x = -1.01;
+    house.add(Window1);
+
+    var geoW = new THREE.PlaneGeometry(0.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: WindowTexture, side: THREE.DoubleSide});
+    var Window2 = new THREE.Mesh(geoW, matW);
+    Window2.rotation.y = Math.PI / 2;
+    Window2.position.z = -0.501;
+    Window2.position.y = -0.25;
+    Window2.position.x = -1.01;
+    house.add(Window2);
+
+    var windowUpTexture = TLoader.load("images/textures/Glass-0254.jpg");
+
+    windowUpTexture.wrapS = THREE.RepeatWrapping;
+    windowUpTexture.wrapT = THREE.RepeatWrapping;
+    windowUpTexture.repeat.set( 4, 1 );
+
+    var geoW = new THREE.PlaneGeometry(1.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: windowUpTexture, side: THREE.DoubleSide});
+    var Window3 = new THREE.Mesh(geoW, matW);
+    Window3.rotation.y = Math.PI / 2;
+    Window3.position.y = 0.25;
+    Window3.position.x = -1.01;
+    house.add(Window3);
+
+
+
+    //Left side
+
+
+    var geoW = new THREE.PlaneGeometry(0.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: WindowTexture, side: THREE.DoubleSide});
+    var Window1 = new THREE.Mesh(geoW, matW);
+    Window1.position.x = 0.501;
+    Window1.position.y = -0.25;
+    Window1.position.z = -1.01;
+    house.add(Window1);
+
+    var geoW = new THREE.PlaneGeometry(0.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: WindowTexture, side: THREE.DoubleSide});
+    var Window2 = new THREE.Mesh(geoW, matW);
+    // Window2.position.z = -0.501;
+    // Window2.position.y = -0.25;
+    // Window2.position.x = -1.01;
+
+    Window2.position.x = -0.501;
+    Window2.position.y = -0.25;
+    Window2.position.z = -1.01;
+    house.add(Window2);
+
+    var windowUpTexture = TLoader.load("images/textures/Glass-0254.jpg");
+
+    windowUpTexture.wrapS = THREE.RepeatWrapping;
+    windowUpTexture.wrapT = THREE.RepeatWrapping;
+    windowUpTexture.repeat.set( 4, 1 );
+
+    var geoW = new THREE.PlaneGeometry(1.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: windowUpTexture, side: THREE.DoubleSide});
+    var Window3 = new THREE.Mesh(geoW, matW);
+    Window3.position.y = 0.25;
+    Window3.position.z = -1.01;
+    house.add(Window3);
+
+
+
+
+    //Right side
+
+
+    var geoW = new THREE.PlaneGeometry(0.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: WindowTexture, side: THREE.DoubleSide});
+    var Window1 = new THREE.Mesh(geoW, matW);
+    Window1.position.x = 0.501;
+    Window1.position.y = -0.25;
+    Window1.position.z = 1.01;
+    house.add(Window1);
+
+    var geoW = new THREE.PlaneGeometry(0.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: WindowTexture, side: THREE.DoubleSide});
+    var Window2 = new THREE.Mesh(geoW, matW);
+    // Window2.position.z = -0.501;
+    // Window2.position.y = -0.25;
+    // Window2.position.x = -1.01;
+
+    Window2.position.x = -0.501;
+    Window2.position.y = -0.25;
+    Window2.position.z = 1.01;
+    house.add(Window2);
+
+    var windowUpTexture = TLoader.load("images/textures/Glass-0254.jpg");
+
+    windowUpTexture.wrapS = THREE.RepeatWrapping;
+    windowUpTexture.wrapT = THREE.RepeatWrapping;
+    windowUpTexture.repeat.set( 4, 1 );
+
+    var geoW = new THREE.PlaneGeometry(1.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: windowUpTexture, side: THREE.DoubleSide});
+    var Window3 = new THREE.Mesh(geoW, matW);
+    Window3.position.y = 0.25;
+    Window3.position.z = 1.01;
+    house.add(Window3);
+
+
+    //Backside
+
+    var geoW = new THREE.PlaneGeometry(0.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: WindowTexture, side: THREE.DoubleSide});
+    var Window1 = new THREE.Mesh(geoW, matW);
+    Window1.rotation.y = Math.PI / 2;
+    Window1.position.z = 0.501;
+    Window1.position.y = -0.25;
+    Window1.position.x = 1.01;
+    house.add(Window1);
+
+    var geoW = new THREE.PlaneGeometry(0.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: WindowTexture, side: THREE.DoubleSide});
+    var Window2 = new THREE.Mesh(geoW, matW);
+    Window2.rotation.y = Math.PI / 2;
+    Window2.position.z = -0.501;
+    Window2.position.y = -0.25;
+    Window2.position.x = 1.01;
+    house.add(Window2);
+
+    var windowUpTexture = TLoader.load("images/textures/Glass-0254.jpg");
+
+    windowUpTexture.wrapS = THREE.RepeatWrapping;
+    windowUpTexture.wrapT = THREE.RepeatWrapping;
+    windowUpTexture.repeat.set( 4, 1 );
+
+    var geoW = new THREE.PlaneGeometry(1.5, 0.3);
+    var matW = new THREE.MeshBasicMaterial({map: windowUpTexture, side: THREE.DoubleSide});
+    var Window3 = new THREE.Mesh(geoW, matW);
+    Window3.rotation.y = Math.PI / 2;
+    Window3.position.y = 0.25;
+    Window3.position.x = 1.01;
+    house.add(Window3);
 
 
     return house;
