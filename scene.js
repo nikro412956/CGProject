@@ -115,18 +115,18 @@ var light = new THREE.DirectionalLight( 0xdddddd, 0.01 );
 light.position.set(0, 10, 0 );
 light.castShadow = true;
 scene.add( light );
-var House1 = addHouse();
-var House2 = addHouse();
-    var HouseGroup = new THREE.Group();
-    for(i = -15; i <=14; i++){
-        var house = addHouse();
-        house.position.x = i;
-        HouseGroup.add(house);
-    }
-    HouseGroup.position.x = -1.5;
-    HouseGroup.position.y = 0.65;
-    HouseGroup.rotation.y = Math.PI / 2;
-    scene.add(HouseGroup);
+// var House1 = addHouse();
+// var House2 = addHouse();
+//     var HouseGroup = new THREE.Group();
+//     for(i = -15; i <=14; i++){
+//         var house = addHouse();
+//         house.position.x = i;
+//         HouseGroup.add(house);
+//     }
+//     HouseGroup.position.x = -1.5;
+//     HouseGroup.position.y = 0.65;
+//     HouseGroup.rotation.y = Math.PI / 2;
+//     scene.add(HouseGroup);
 
 // HouseGroup.add(House1);
 // House2.position.x = 1;
@@ -134,7 +134,7 @@ var House2 = addHouse();
 
 var bigHouse = addHouse2();
 bigHouse.position.z = 2;
-bigHouse.position.x = 2.5;
+bigHouse.position.x = 3;
 bigHouse.position.y = 0.65;
 scene.add(bigHouse);
 
