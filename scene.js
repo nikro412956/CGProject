@@ -29,8 +29,12 @@ var scene = new THREE.Scene();
 
 var lion;
 loader.load("LionStatue/lion-statue.json", function (obj) {
-    obj.scale.set(0.1,0.1,0.1);
+    obj.scale.set(0.05,0.05,0.05);
     lion = obj;
+    lion.rotation.y = Math.PI / 2;
+    lion.position.y = 0.125;
+    lion.position.x = 1.5;
+    lion.position.z = 1.5;
     scene.add(lion);
 })
 
