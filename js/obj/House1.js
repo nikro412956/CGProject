@@ -10,7 +10,7 @@ function addHouse(){
     var texture2 = TLoader.load("images/textures/wildtextures-Olde-Brick-Wal-Texture.jpg");
     texture2.wrapS = THREE.RepeatWrapping;
     texture2.wrapT = THREE.RepeatWrapping;
-    texture2.repeat.set( 1, 1 );
+    texture2.repeat.set( 1, 2 );
 
     var roofTexture = TLoader.load("images/textures/roofTiles.jpg");
 
@@ -32,14 +32,14 @@ function addHouse(){
     var roofPlane = new THREE.Mesh(geoFrontR, matFrontR);
     roofPlane.position.x = 0;
     roofPlane.position.y = 0.5;
-    roofPlane.position.z = 0.499;
+    roofPlane.position.z = 0.49899;
     roofPlane.rotation.z = Math.PI / 4;
     House1.add(roofPlane);
 
     var roofPlane2 = new THREE.Mesh(geoFrontR, matFrontR);
     roofPlane2.position.x = 0;
     roofPlane2.position.y = 0.5;
-    roofPlane2.position.z = -0.499;
+    roofPlane2.position.z = -0.49899;
     roofPlane2.rotation.z = Math.PI / 4;
     House1.add(roofPlane2);
 
@@ -64,7 +64,7 @@ function addHouse(){
     var matDoor = new THREE.MeshBasicMaterial({map: doorTexture, side: THREE.DoubleSide});
     var Door = new THREE.Mesh(geoDoor, matDoor);
     Door.position.y = -0.3;
-    Door.position.z = 0.5001;
+    Door.position.z = 0.501;
     Door.position.x = -0.25;
     House1.add(Door);
 
@@ -73,7 +73,7 @@ function addHouse(){
     var geoW = new THREE.PlaneGeometry(0.5, 0.3);
     var matW = new THREE.MeshBasicMaterial({map: windowTexture, side: THREE.DoubleSide});
     var Window = new THREE.Mesh(geoW, matW);
-    Window.position.z = 0.5001;
+    Window.position.z = 0.501;
     Window.position.y = -0.2;
     Window.position.x = 0.15;
     House1.add(Window);
@@ -82,13 +82,13 @@ function addHouse(){
     var geoUW = new THREE.PlaneGeometry(0.3, 0.2);
     var matUW = new THREE.MeshBasicMaterial({map: wTextureUp, side: THREE.DoubleSide});
     var UpstairsW = new THREE.Mesh(geoUW, matUW);
-    UpstairsW.position.z = 0.5001;
+    UpstairsW.position.z = 0.501;
     UpstairsW.position.y = 0.25;
     UpstairsW.position.x = -0.2;
     House1.add(UpstairsW);
 
     var UpstairsW2 = new THREE.Mesh(geoUW, matUW);
-    UpstairsW2.position.z = 0.5001;
+    UpstairsW2.position.z = 0.501;
     UpstairsW2.position.y = 0.25;
     UpstairsW2.position.x = 0.2;
     House1.add(UpstairsW2);
@@ -97,7 +97,7 @@ function addHouse(){
     var geoSW = new THREE.PlaneGeometry(0.15, 0.15);
     var matSW = new THREE.MeshBasicMaterial({map: SmallWindowT, side: THREE.DoubleSide});
     var smallW = new THREE.Mesh(geoSW, matSW);
-    smallW.position.z = 0.5001;
+    smallW.position.z = 0.501;
     smallW.position.y = 0.7;
     smallW.position.x = 0;
     House1.add(smallW);
