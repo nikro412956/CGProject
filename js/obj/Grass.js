@@ -4,7 +4,7 @@ function addGrass() {
     texture.wrapT = THREE.RepeatWrapping;
     texture.repeat.set(95, 896);
 
-    var grassGeometry = new THREE.BoxGeometry(10, 0.3, 100);
+    var grassGeometry = new THREE.BoxGeometry(10, 0.3, 50);
     var grassMaterial = new THREE.MeshBasicMaterial({map: texture});
 
     var grass = new THREE.Mesh(grassGeometry, grassMaterial);
